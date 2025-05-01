@@ -6,7 +6,7 @@
 /*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 17:34:09 by susami            #+#    #+#             */
-/*   Updated: 2022/04/22 11:06:29 by susami           ###   ########.fr       */
+/*   Updated: 2025/05/01 13:24:18 by gostroum         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdarg.h>
-#include <malloc/malloc.h>
+#include <malloc.h>
 #define ANSI_COLOR_RED     "\x1b[1;31m"
 #define ANSI_COLOR_GREEN   "\x1b[1;32m"
 #define ANSI_COLOR_YELLOW  "\x1b[1;33m"
@@ -250,10 +250,10 @@ void	ASSERT_EQ_MALLOC_SIZE(void *actual, void *expected,
 		return ;
 	}
 		
-	if (malloc_size(actual) != malloc_size(expected))
+	if (malloc_usable_size(actual) != malloc_usable_size(expected))
 	{
 		print_ko();
-		print_error("[test %zu] %s failed: malloc_size \"%i\" is not equal to expected \"%i\"\n", counter, __func__, malloc_size(actual), malloc_size(expected));
+		print_error("[test %zu] %s failed: malloc_size \"%i\" is not equal to expected \"%i\"\n", counter, __func__, malloc_usable_size(actual), malloc_usable_size(expected));
 		print_error("func %s at file %s, line %d\n",
 			caller_func, caller_file, caller_line);
 	}

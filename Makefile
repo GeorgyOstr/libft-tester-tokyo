@@ -6,7 +6,7 @@
 #    By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/15 09:49:28 by susami            #+#    #+#              #
-#    Updated: 2022/06/03 13:17:15 by susami           ###   ########.fr        #
+#    Updated: 2025/05/01 13:26:03 by gostroum         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ LIBASSERT_DIR	=	./libs/libassert/
 LIBASSERT		=	$(LIBASSERT_DIR)libassert.a
 LIBS			= 	./libs/*/*.a
 CC				=	gcc
-CFLAGS			=	-Wall -Wextra -Werror
+CFLAGS			=	-Wall -Wextra -Werror -DLIBBSD_OVERLAY -I/usr/include/bsd -lbsd
 INCS			=	./includes\
 					$(LIBFT_DIR)\
 
